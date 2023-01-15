@@ -1,0 +1,9 @@
+SUDO_USERNAME = "admin"
+SUDO_PASSWORD = "admin"
+
+# XRAY_HOSTS = "
+# Fast-VPN Domain@example.com
+# Fast-VPN IP@192.168.1.1
+# "
+
+# XRAY_SUBSCRIPTION_URL_PREFIX = "https://example.com"

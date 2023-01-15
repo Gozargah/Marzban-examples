@@ -1,0 +1,22 @@
+services:
+  marzban:
+    image: gozargah/marzban:latest
+    restart: on-failure
+    env_file: env
+
+    environment:
+      UVICORN_HOST: 0.0.0.0
+      UVICORN_PORT: 8880
+      SQLALCHEMY_DATABASE_URL: "sqlite:////var/lib/marzban/db.sqlite3"
+      XRAY_JSON: "/xray_config.json"
+
+    ports:
+      - "8880:8880" # Web
+      - "2053:2053" # VMess
+      - "2083:2083" # VLESS
+      - "2087:2087" # Trojan
+      - "2096:2096" # Shadowsocks
+
+    volumes:
+      - ./xray_config.json:/xray_config.json
+      - /var/lib/marzban:/var/lib/marzban
