@@ -24,7 +24,7 @@ Do NOT forget to edit `SUDO_USERNAME` & `SUDO_PASSWORD` in production
 ## Instruction
 Download the files in a directory called *marzban* by following command
 ```bash
-wget -qO- https://github.com/Gozargah/Marzban-examples/releases/download/latest/single-port-proxy.tar.gz | tar xz --xform 's/single-port-proxy/marzban/' && cd marzban
+wget -qO- https://github.com/Gozargah/Marzban-examples/releases/latest/download/single-port-proxy.tar.gz | tar xz --xform 's/single-port-proxy/marzban/' && cd marzban
 ```
 Now you're in the directory, run the following command to run the application using docker
 ```bash
