@@ -5,7 +5,7 @@ services:
     env_file: env
 
     environment:
-      UVICORN_UDS: "/run/marzban.sock"
+      UVICORN_UDS: "/run/marzban.socket"
       SQLALCHEMY_DATABASE_URL: "sqlite:////var/lib/marzban/db.sqlite3"
       XRAY_JSON: "/xray_config.json"
       XRAY_FALLBACK_INBOUND_TAG: "TROJAN_FALLBACK_INBOUND"

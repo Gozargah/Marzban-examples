@@ -10,6 +10,9 @@ Configured protocols on port 443:
 - Trojan-Websocket
 - VLESS-Websocket
 - Vmess-Websocket
+- Trojan-gRPC
+- VLESS-gRPC
+- Vmess-gRPC
 
 Dashboard will be on `http://{YOUR_SERVER_IP}:443/dashboard`
 
