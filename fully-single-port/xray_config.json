@@ -12,11 +12,6 @@
                 "decryption": "none",
                 "fallbacks": [
                     {
-                        "alpn": "h2",
-                        "dest": "/run/nginx-h2c.socket",
-                        "xver": 2
-                    },
-                    {
                         "path": "/lw",
                         "dest": "@vless-ws",
                         "xver": 2
@@ -29,6 +24,11 @@
                     {
                         "path": "/tw",
                         "dest": "@trojan-ws",
+                        "xver": 2
+                    },
+                    {
+                        "alpn": "h2",
+                        "dest": "/run/nginx-h2c.socket",
                         "xver": 2
                     },
                     {
@@ -133,52 +133,6 @@
                     "http",
                     "tls"
                 ]
-            }
-        },
-        {
-            "tag": "TROJAN_GRPC_INBOUND",
-            "listen": "/run/xray-trojan-grpc.socket,0666",
-            "protocol": "trojan",
-            "settings": {
-                "clients": []
-            },
-            "streamSettings": {
-                "network": "grpc",
-                "security": "none",
-                "grpcSettings": {
-                    "serviceName": "tg"
-                }
-            }
-        },
-        {
-            "tag": "VLESS_GRPC_INBOUND",
-            "listen": "/run/xray-vless-grpc.socket,0666",
-            "protocol": "vless",
-            "settings": {
-                "clients": [],
-                "decryption": "none"
-            },
-            "streamSettings": {
-                "network": "grpc",
-                "security": "none",
-                "grpcSettings": {
-                    "serviceName": "lg"
-                }
-            }
-        },
-        {
-            "tag": "VMESS_GRPC_INBOUND",
-            "listen": "/run/xray-vmess-grpc.socket,0666",
-            "protocol": "vmess",
-            "settings": {
-                "clients": []
-            },
-            "streamSettings": {
-                "network": "grpc",
-                "security": "none",
-                "grpcSettings": {
-                    "serviceName": "mg"
-                }
             }
         }
     ],
