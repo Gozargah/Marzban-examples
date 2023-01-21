@@ -20,6 +20,10 @@ You can set configuration variables in `env` file.
 Do NOT forget to edit `SUDO_USERNAME` & `SUDO_PASSWORD` in production
 
 ## Instruction
+Install docker on your machine
+```bash
+curl -fsSL https://get.docker.com | sh
+```
 Download the files in a directory called *marzban* by following command
 ```bash
 wget -qO- https://github.com/Gozargah/Marzban-examples/releases/latest/download/multi-port.tar.gz | tar xz --xform 's/multi-port/marzban/' && cd marzban
