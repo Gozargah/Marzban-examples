@@ -10,7 +10,7 @@ This setup runs application and proxies on different ports
 | 2087 | Trojan      |
 | 2096 | Shadowsocks |
 
-You can change any of these ports in `docker-compose.yml` ( OPTIONAL: also `xray_config.json` if you wish ).
+To change the ports, you have to edit it from `docker-compose.yml` and `xray_config.json`.
 
 Dashboard will be on `http://{YOUR_SERVER_IP}:8880/dashboard`
 
@@ -31,6 +31,14 @@ docker compose up -d
 
 ### TLS
 To enable TLS, you must have generated your certificate files. you can use tools such [certbot](https://github.com/certbot/certbot) or [acme.sh](https://github.com/acmesh-official/acme.sh).
+
+Then you need to mount a volume to the path of certification files in `docker-compose.yml` in order to access it inside docker container.
+
+such this for certbot:
+```yaml
+volumes:
+  - /etc/letsencrypt/:/etc/letsencrypt
+```
 
 Eventually you have to edit `xray_config.json` and add TLS configuration inside streamSettings just like the commented ones and fill `SERVER_NAME`, `CERT_FILE_PATH` and `KEY_FILE_PATH`.
 
