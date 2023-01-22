@@ -14,9 +14,10 @@ services:
       - /var/lib/marzban/run:/run
       - ./xray_config.json:/xray_config.json
       - /var/lib/marzban:/var/lib/marzban
+      - /etc/ssl/private/:/etc/ssl/private/
 
     ports:
-      - "443:443"
+      - "8443:8443"
 
   nginx:
     image: nginx
