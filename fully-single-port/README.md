@@ -5,7 +5,7 @@ This setup runs both the application and proxy on a single port using [fallbacks
 ‌By using this configuration, Xray serves the entire application on port `8443`.
 To change the port, you have to edit it from `docker-compose.yml` and `xray_config.json`.
 
-Configured protocols on port 4843:
+Configured protocols on port 8443:
 - Trojan-TCP
 - Trojan-Websocket
 - VLESS-Websocket
