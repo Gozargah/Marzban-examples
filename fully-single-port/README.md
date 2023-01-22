@@ -20,15 +20,15 @@ Do NOT forget to edit `SUDO_USERNAME` & `SUDO_PASSWORD` in production
 
 ## Instruction
 Install docker on your machine
-```bash
+```
 curl -fsSL https://get.docker.com | sh
 ```
 Download the files in a directory called *marzban* by following command
-```bash
+```
 wget -qO- https://github.com/Gozargah/Marzban-examples/releases/latest/download/fully-single-port.tar.gz | tar xz --xform 's/fully-single-port/marzban/' && cd marzban
 ```
 Now you're in the directory, run the following command to run the application using docker
-```bash
+```
 docker compose up -d
 ```
 
@@ -57,12 +57,12 @@ chown nobody:nogroup /etc/ssl/private/
 ```
 
 
-Eventually, edit `xray_config.json` file and uncomment the TLS section inside streamSettings of fallback inbound and fill `SERVER_NAME` with your ones.
+Eventually, edit `xray_config.json` file and uncomment the TLS section inside streamSettings of fallback inbound and fill `SERVER_NAME` with your ones and remove all "//" from the config file.
+
+`"serverName": "yourdomain",`
 
 
-| Variable       | Description                                                                      |
-| -------------- | -------------------------------------------------------------------------------- |
-| SERVER_NAME    | Domain name ( e.g. `example.com` )                                               |
-      |
-
-
+Finally
+```
+docker compose restart
+```
