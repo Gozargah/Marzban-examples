@@ -37,18 +37,24 @@ docker compose up -d
 
 First, you must have generated your certificate files. to do this, you can use [certbot]
 
+
+```
 apt-get install certbot -y
 certbot certonly --standalone --agree-tos --register-unsafely-without-email -d api.yourdomain.com
+```
 
 after you got your certificate we have to copy it to somewhere elese and edit the group and chmod
 
+```
 cp /etc/letsencrypt/live/api.yourdomain.com/fullchain.pem /etc/ssl/private/fullchain.pem
 cp /etc/letsencrypt/live/api.yourdomain.com/privkey.pem /etc/ssl/private/privkey.pem
-------------
+```
+
+```
 chmod --preserve-root 644 /etc/ssl/private/fullchain.pem
 chmod --preserve-docker 644 xray_config.json
 chown nobody:nogroup /etc/ssl/private/
-
+```
 
 
 Eventually, edit `xray_config.json` file and uncomment the TLS section inside streamSettings of fallback inbound and fill `SERVER_NAME` with your ones.
