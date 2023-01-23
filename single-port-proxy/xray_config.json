@@ -34,15 +34,15 @@
             },
             "streamSettings": {
                 "network": "tcp"
-                // ,
+              //  ,
                 // "security": "tls",
                 // "tlsSettings": {
                 //     "serverName": "SERVER_NAME",
                 //     "certificates": [
                 //         {
                 //             "ocspStapling": 3600,
-                //             "certificateFile": "CERT_FILE_PATH",
-                //             "keyFile": "KEY_FILE_PATH"
+                //             "certificateFile": "/etc/ssl/private/fullchain.pem",
+                //             "keyFile": "/etc/ssl/private/privkey.pem"
                 //         }
                 //     ],
                 //     "minVersion": "1.2",

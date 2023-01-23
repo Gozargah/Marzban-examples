@@ -38,8 +38,8 @@
                 //     "serverName": "SERVER_NAME",
                 //     "certificates": [
                 //         {
-                //             "certificateFile": "CERT_FILE_PATH",
-                //             "keyFile": "KEY_FILE_PATH"
+                //             "certificateFile": "/etc/ssl/private/fullchain.pem",
+                //             "keyFile": "/etc/ssl/private/privkey.pem"
                 //         }
                 //     ],
                 //     "minVersion": "1.2",
@@ -66,8 +66,8 @@
                 //     "serverName": "SERVER_NAME",
                 //     "certificates": [
                 //         {
-                //             "certificateFile": "CERT_FILE_PATH",
-                //             "keyFile": "KEY_FILE_PATH"
+                //             "certificateFile": "/etc/ssl/private/fullchain.pem",
+                //             "keyFile": "/etc/ssl/private/privkey.pem"
                 //         }
                 //     ],
                 //     "minVersion": "1.2",

@@ -2,7 +2,7 @@
 This setup runs all proxy protocols on a single port using [fallbacks](https://xtls.github.io/config/features/fallback.html) and application on a separate port
 
 ## Description
-By default, application runs on port 8880 and proxies on port 8443.
+By default, application runs on port 2053 and proxies on port 8443.
 
 To change the port, you have to edit it from `docker-compose.yml` and `xray_config.json`.
 
@@ -14,7 +14,7 @@ Configured protocols on port 8443:
 - Vmess-TCP
 - Vmess-Websocket
 
-Dashboard will be on `http://{YOUR_SERVER_IP}:8880/dashboard`
+Dashboard will be on `http://{YOUR_SERVER_IP}:2053/dashboard`
 
 ## Configuration
 You can set configuration variables in `env` file.
@@ -36,23 +36,38 @@ docker compose up -d
 ```
 
 ### TLS
-To enable TLS, you must have generated your certificate files. you can use tools such [certbot](https://github.com/certbot/certbot) or [acme.sh](https://github.com/acmesh-official/acme.sh).
+\* **Note that by enabling TLS in this setup, dashboard will serve on https too**, so dashboard URL will be on `https://{YOUR_DOMAIN}:8443/dashboard`
 
-Then you need to mount a volume to the path of certification files in `docker-compose.yml` in order to access it inside docker container.
+First, you must have generated your certificate files. to do this, you can use [certbot]
 
-such this for certbot:
-```yaml
-volumes:
-  - /etc/letsencrypt/:/etc/letsencrypt
+
+```
+apt-get install certbot -y
+certbot certonly --standalone --agree-tos --register-unsafely-without-email -d api.yourdomain.com
 ```
 
-Eventually, edit `xray_config.json` file and uncomment the TLS section inside streamSettings of fallback inbound and fill `SERVER_NAME`, `CERT_FILE_PATH` and `KEY_FILE_PATH` with your ones.
+after you got your certificate we have to copy it to somewhere elese and edit the group and chmod
+
+```
+cp /etc/letsencrypt/live/api.yourdomain.com/fullchain.pem /etc/ssl/private/fullchain.pem
+cp /etc/letsencrypt/live/api.yourdomain.com/privkey.pem /etc/ssl/private/privkey.pem
+```
+
+```
+chmod --preserve-root 644 /etc/ssl/private/fullchain.pem
+chmod --preserve-docker 644 xray_config.json
+chown nobody:nogroup /etc/ssl/private/
+```
 
 
-| Variable       | Description                                                                      |
-| -------------- | -------------------------------------------------------------------------------- |
-| SERVER_NAME    | Domain name ( e.g. `example.com` )                                               |
-| CERT_FILE_PATH | Certificate file path ( e.g. `/etc/letsencrypt/live/example.com/fullchain.pem` ) |
-| KEY_FILE_PATH  | Key file path ( e.g. `/etc/letsencrypt/live/example.com/privkey.pem` )           |
+Eventually, edit `xray_config.json` file and uncomment the TLS section inside streamSettings of fallback inbound and fill `SERVER_NAME` with your ones and remove all "//" from the config file.
+
+`"serverName": "yourdomain",`
+
+
+Finally
+```
+docker compose restart
+```
 
 

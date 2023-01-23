@@ -6,12 +6,12 @@ services:
 
     environment:
       UVICORN_HOST: 0.0.0.0
-      UVICORN_PORT: 8880
+      UVICORN_PORT: 8443
       SQLALCHEMY_DATABASE_URL: "sqlite:////var/lib/marzban/db.sqlite3"
       XRAY_JSON: "/xray_config.json"
 
     ports:
-      - "8880:8880" # Web
+      - "8443:8443" # Web
       - "2053:2053" # VMess
       - "2083:2083" # VLESS
       - "2087:2087" # Trojan
