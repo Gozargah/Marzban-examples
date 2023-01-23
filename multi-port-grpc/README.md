@@ -5,10 +5,8 @@ This setup runs application and proxies on different ports
 | PORT | Description |
 | ---- | ----------- |
 | 8443 | Application |
-| 2053 | VMess       |
-| 2083 | VLESS       |
-| 2087 | Trojan      |
-| 2096 | Shadowsocks |
+| 2083 | Trojan      |
+
 
 To change the ports, you have to edit it from `docker-compose.yml` and `xray_config.json`.
 
