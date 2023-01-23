@@ -1,0 +1,70 @@
+{
+    "log": {
+        "loglevel": "info"
+    },
+    "inbounds": [
+        {
+            "tag": "TROJAN_INBOUND",
+            "listen": "127.0.0.1",
+            "port": 2083,
+            "protocol": "trojan",
+            "settings": {
+                "clients": []
+            },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "servername",   //edit it to your domain name address
+          "certificates": [
+            {
+              "certificateFile": "/etc/ssl/private/fullchain.pem",
+              "keyFile": "/etc/ssl/private/privkey.pem"
+            }
+          ],
+          "alpn": "h2,http/1.1"
+        },
+        "grpcSettings": {
+          "serviceName": "TALdGZ9k"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "settings": {},
+            "tag": "DIRECT"
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {},
+            "tag": "BLOCK"
+        }
+    ],
+    "routing": {
+        "rules": [
+            {
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            },
+            {
+                "domain": [
+                    "localhost"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            }
+        ]
+    }
+}

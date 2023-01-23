@@ -1,0 +1,29 @@
+services:
+  marzban:
+    image: gozargah/marzban:latest
+    restart: on-failure
+    env_file: env
+
+    environment:
+      UVICORN_HOST: 0.0.0.0
+      UVICORN_PORT: 8443
+      UVICORN_UDS: "/run/marzban.socket"
+      SQLALCHEMY_DATABASE_URL: "sqlite:////var/lib/marzban/db.sqlite3"
+      XRAY_JSON: "/xray_config.json"
+      XRAY_FALLBACK_INBOUND_TAG: "TROJAN_INBOUND"
+
+    volumes:
+      - /var/lib/marzban/run:/run
+      - ./xray_config.json:/xray_config.json
+      - /var/lib/marzban:/var/lib/marzban
+      - /etc/ssl/private/:/etc/ssl/private/
+
+    ports:
+    ports:
+      - "8443:8443" # Web
+      - "2083:2083" # Trojan
+  nginx:
+    image: nginx
+    volumes:
+      - /var/lib/marzban/run:/run
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
