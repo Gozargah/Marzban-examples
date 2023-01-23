@@ -5,7 +5,7 @@
     "inbounds": [
         {
             "tag": "TROJAN_FALLBACK_INBOUND",
-            "port": 8443,
+            "port": 2053,
             "protocol": "trojan",
             "settings": {
                 "clients": [],

@@ -6,14 +6,14 @@ services:
 
     environment:
       UVICORN_HOST: 0.0.0.0
-      UVICORN_PORT: 2053
+      UVICORN_PORT: 8443
       SQLALCHEMY_DATABASE_URL: "sqlite:////var/lib/marzban/db.sqlite3"
       XRAY_JSON: "/xray_config.json"
       XRAY_FALLBACK_INBOUND_TAG: "TROJAN_FALLBACK_INBOUND"
 
     ports:
-      - "2053:2053" # Web
-      - "8443:8443" # Proxy
+      - "8443:8443" # Web
+      - "2053:2053" # Proxy
 
     volumes:
       - ./xray_config.json:/xray_config.json

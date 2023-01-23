@@ -2,11 +2,11 @@
 This setup runs all proxy protocols on a single port using [fallbacks](https://xtls.github.io/config/features/fallback.html) and application on a separate port
 
 ## Description
-By default, application runs on port 2053 and proxies on port 8443.
+By default, application runs on port 8443 and proxies on port 2053.
 
 To change the port, you have to edit it from `docker-compose.yml` and `xray_config.json`.
 
-Configured protocols on port 8443:
+Configured protocols on port 2053:
 - Trojan-TCP
 - Trojan-Websocket
 - VLESS-TCP
@@ -14,7 +14,7 @@ Configured protocols on port 8443:
 - Vmess-TCP
 - Vmess-Websocket
 
-Dashboard will be on `http://{YOUR_SERVER_IP}:2053/dashboard`
+Dashboard will be on `http://{YOUR_SERVER_IP}:8443/dashboard`
 
 ## Configuration
 You can set configuration variables in `env` file.
