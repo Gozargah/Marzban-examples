@@ -1,4 +1,4 @@
-# Multi Port
+# Single Port Proxy
 This setup runs all proxy protocols on a single port using [fallbacks](https://xtls.github.io/config/features/fallback.html) and application on a separate port
 
 ## Description
