@@ -3,6 +3,7 @@ services:
     image: gozargah/marzban:latest
     restart: on-failure
     env_file: env
+    network_mode: host
 
     environment:
       UVICORN_HOST: 0.0.0.0
@@ -10,10 +11,6 @@ services:
       SQLALCHEMY_DATABASE_URL: "sqlite:////var/lib/marzban/db.sqlite3"
       XRAY_JSON: "/xray_config.json"
       XRAY_FALLBACK_INBOUND_TAG: "TROJAN_FALLBACK_INBOUND"
-
-    ports:
-      - "8880:8880" # Web
-      - "8443:8443" # Proxy
 
     volumes:
       - ./xray_config.json:/xray_config.json

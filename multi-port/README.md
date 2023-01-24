@@ -10,9 +10,9 @@ This setup runs application and proxies on different ports
 | 2087 | Trojan      |
 | 2096 | Shadowsocks |
 
-To change the ports, you have to edit it from `docker-compose.yml` and `xray_config.json`.
-
 Dashboard will be on `http://{YOUR_SERVER_IP}:8880/dashboard`
+
+> these are default, you can change any of ports above from `xray_config.json` file.
 
 ## Configuration
 You can set configuration variables in `env` file.

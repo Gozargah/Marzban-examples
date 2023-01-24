@@ -3,7 +3,6 @@ This setup runs both the application and proxy on a single port using [fallbacks
 
 ## Description
 ‌By using this configuration, Xray serves the entire application on port `443`.
-To change the port, you have to edit it from `docker-compose.yml` and `xray_config.json`.
 
 Configured protocols on port 443:
 - Trojan-TCP
@@ -12,6 +11,8 @@ Configured protocols on port 443:
 - Vmess-Websocket
 
 Dashboard will be on `http://{YOUR_SERVER_IP}:443/dashboard`
+
+> this is the default port, you can change it from `xray_config.json` file.
 
 ## Configuration
 You can set configuration variables in `env` file.

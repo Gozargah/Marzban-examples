@@ -4,8 +4,6 @@ This setup runs all proxy protocols on a single port using [fallbacks](https://x
 ## Description
 By default, application runs on port 8880 and proxies on port 8443.
 
-To change the port, you have to edit it from `docker-compose.yml` and `xray_config.json`.
-
 Configured protocols on port 8443:
 - Trojan-TCP
 - Trojan-Websocket
@@ -15,6 +13,8 @@ Configured protocols on port 8443:
 - Vmess-Websocket
 
 Dashboard will be on `http://{YOUR_SERVER_IP}:8880/dashboard`
+
+> you can change default ports above from `xray_config.json` file.
 
 ## Configuration
 You can set configuration variables in `env` file.

@@ -3,6 +3,7 @@ services:
     image: gozargah/marzban:latest
     restart: on-failure
     env_file: env
+    network_mode: host
 
     environment:
       UVICORN_UDS: "/run/marzban.socket"
@@ -14,9 +15,6 @@ services:
       - /var/lib/marzban/run:/run
       - ./xray_config.json:/xray_config.json
       - /var/lib/marzban:/var/lib/marzban
-
-    ports:
-      - "443:443"
 
   nginx:
     image: nginx
