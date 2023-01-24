@@ -32,26 +32,36 @@ Now you're in the directory, run the following command to run the application us
 docker compose up -d
 ```
 
-### TLS
-\* **Note that by enabling TLS in this setup, dashboard will serve on https too**, so dashboard URL will be on `https://{YOUR_DOMAIN}:443/dashboard`
+### How to enable TLS?
 
-First, you must have generated your certificate files. to do this, you can use tools such [certbot](https://github.com/certbot/certbot) or [acme.sh](https://github.com/acmesh-official/acme.sh).
+You can use either [acme.sh](https://github.com/acmesh-official/acme.sh) or [certbot](https://github.com/certbot/certbot) to generate your certificate files.
 
-Then you need to mount a volume to the path of certification files in `docker-compose.yml` in order to access it inside docker container.
+In the following you will see how to get this done using acme.sh
 
-such this for certbot:
-```yaml
-volumes:
-  - /etc/letsencrypt/:/etc/letsencrypt
+First step, you have to install `socat` and `cron` which is required by acme. you can do this by command below if you're on an debian based OS such ubuntu
+```bash
+sudo apt install -y socat cron
 ```
 
-Eventually, edit `xray_config.json` file and uncomment the TLS section inside streamSettings of fallback inbound and fill `SERVER_NAME`, `CERT_FILE_PATH` and `KEY_FILE_PATH` with your ones.
+Next step, run these commands and fill `YOUR_EMAIL` and `YOUR_DOMAIN` with yours
+```bash
+curl https://get.acme.sh | sh -s email=YOUR_EMAIL
+mkdir -p /var/lib/marzban/certs/
+~/.acme.sh/acme.sh --issue --standalone -d YOUR_DOMAIN \
+--key-file /var/lib/marzban/certs/key.pem \
+--fullchain-file /var/lib/marzban/certs/fullchain.pem
+```
+
+Eventually, go edit `xray_config.json` file and find the commented part of tls settings and uncomment it by removing all `//` at start of lines. and do NOT forget to change the `SERVER_NAME` with your domain.
 
 
-| Variable       | Description                                                                      |
-| -------------- | -------------------------------------------------------------------------------- |
-| SERVER_NAME    | Domain name ( e.g. `example.com` )                                               |
-| CERT_FILE_PATH | Certificate file path ( e.g. `/etc/letsencrypt/live/example.com/fullchain.pem` ) |
-| KEY_FILE_PATH  | Key file path ( e.g. `/etc/letsencrypt/live/example.com/privkey.pem` )           |
+> In this setup particularly, dashboard will be served on https if you have enabled TLS on proxies. so notice that your dashboard also will be on `https://{YOUR_DOMAIN}/dashboard` with all you did above.
 
+Now just restart the marzban with following commands
+```bash
+cd marzban
+docker compose down
+docker compose up -d
+```
 
+Yay! you've done all needed.

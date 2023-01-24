@@ -41,8 +41,8 @@
                 //     "certificates": [
                 //         {
                 //             "ocspStapling": 3600,
-                //             "certificateFile": "CERT_FILE_PATH",
-                //             "keyFile": "KEY_FILE_PATH"
+                //             "certificateFile": "/var/lib/marzban/certs/fullchain.pem",
+                //             "keyFile": "/var/lib/marzban/certs/key.pem"
                 //         }
                 //     ],
                 //     "minVersion": "1.2",
