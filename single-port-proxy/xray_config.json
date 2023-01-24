@@ -184,6 +184,7 @@
     ],
     "outbounds": [
         {
+            "tag": "freedom",
             "protocol": "freedom",
             "settings": {}
         },
