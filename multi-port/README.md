@@ -35,7 +35,7 @@ docker compose up -d
 
 ### How to enable TLS?
 
-You can use either use [acme.sh](https://github.com/acmesh-official/acme.sh) or [certbot](https://github.com/certbot/certbot) to generate your certificate files.
+You can use either [acme.sh](https://github.com/acmesh-official/acme.sh) or [certbot](https://github.com/certbot/certbot) to generate your certificate files.
 
 In the following you will see how to get this done using acme.sh
 
