@@ -1,6 +1,6 @@
-[English](#en) / [فارسی](#fa)
+[English](#single-port-proxy) / [فارسی](#پروکسی-تک-پورت)
 
-# [Single Port Proxy](#en)
+# Single Port Proxy
 This setup runs all proxy protocols on a single port using [fallbacks](https://xtls.github.io/config/features/fallback.html) and application on a separate port
 
 ## Description
@@ -24,7 +24,7 @@ You can set configuration variables in `env` file.
 Do NOT forget to edit `SUDO_USERNAME` & `SUDO_PASSWORD` in production
 
 ## Instruction
-Install docker on your machine
+Install docker on your machine2
 ```bash
 curl -fsSL https://get.docker.com | sh
 ```
@@ -80,7 +80,7 @@ Yay! you've done all needed.
 
 ---
 
-# [پروکسی تک پورت](#fa)
+# پروکسی تک پورت
 این تنظیمات تمام پروتکل های پروکسی را با استفاده از [fallbacks](https://xtls.github.io/config/features/fallback.html) روی یک پورت و برنامه را روی یک پورت مجزا اجرا می کند
 
 ## توضیحات

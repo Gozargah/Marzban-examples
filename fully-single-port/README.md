@@ -1,4 +1,4 @@
-[English](#en) / [فارسی](#fa)
+[English](#fully-single-port) / [فارسی](#کاملا-تک-پورت)
 
 # [Fully Single Port](#en)
 This setup runs both the application and proxy on a single port using [fallbacks](https://xtls.github.io/config/features/fallback.html). this is inspired by [All-in-One-fallbacks-Nginx](https://github.com/XTLS/Xray-examples/tree/main/All-in-One-fallbacks-Nginx)

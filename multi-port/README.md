@@ -1,4 +1,4 @@
-[English](#en) / [فارسی](#fa)
+[English](#multi-port) / [فارسی](#چند-پورت)
 
 # [Multi Port](#en)
 This setup runs application and proxies on different ports
