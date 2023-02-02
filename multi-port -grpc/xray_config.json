@@ -1,0 +1,101 @@
+{
+    "log": {
+        "loglevel": "info"
+    },
+    "inbounds": [
+        {
+      "tag": "TROJAN_INBOUND",
+      "listen": "0.0.0.0", 
+      "port": 2053,
+      "protocol": "trojan",
+            "settings": {
+                "clients": []
+            },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "tls",
+        "tlsSettings": {
+            "serverName": "example.com",   //change it to your website
+            "certificates": [
+                {
+					"ocspStapling": 3600,
+                    "certificateFile": "/var/lib/marzban/certs/fullchain.pem",
+                    "keyFile": "/var/lib/marzban/certs/key.pem"
+                }
+            ],
+            "minVersion": "1.2",
+            "cipherSuites": "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+            "alpn": [
+                "h2",
+                "http/1.1"
+            ]
+        },
+        "grpcSettings": {
+          "serviceName": "TALdGZ9k"
+        }
+      }
+    },
+    {
+      "tag": "VLESS_INBOUND",
+      "listen": "0.0.0.0",
+      "port": 2083,
+      "protocol": "vless",
+            "settings": {
+                "clients": [],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "tls",
+        "tlsSettings": {
+            "serverName": "example.com",  //change it to your website
+            "certificates": [
+                {
+					"ocspStapling": 3600,
+                    "certificateFile": "/var/lib/marzban/certs/fullchain.pem",
+                    "keyFile": "/var/lib/marzban/certs/key.pem"
+                }
+            ],
+            "minVersion": "1.2",
+            "cipherSuites": "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+            "alpn": [
+                "h2",
+                "http/1.1"
+            ]
+        },
+        "grpcSettings": {
+          "serviceName": "TALdGZ9k"
+        }
+        }
+   }],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "settings": {},
+            "tag": "DIRECT"
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {},
+            "tag": "BLOCK"
+        }
+    ],
+    "routing": {
+        "rules": [
+            {
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            },
+            {
+                "domain": [
+                    "localhost"
+                ],
+                "outboundTag": "BLOCK",
+                "type": "field"
+            }
+        ]
+    }
+}
