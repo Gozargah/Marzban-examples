@@ -6,7 +6,7 @@
         {
       "tag": "TROJAN_INBOUND",
       "listen": "0.0.0.0", 
-      "port": 2053,
+      "port": 2083,
       "protocol": "trojan",
             "settings": {
                 "clients": []
@@ -38,7 +38,7 @@
     {
       "tag": "VLESS_INBOUND",
       "listen": "0.0.0.0",
-      "port": 2083,
+      "port": 2087,
       "protocol": "vless",
             "settings": {
                 "clients": [],
