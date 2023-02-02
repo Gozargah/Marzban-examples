@@ -7,8 +7,9 @@ This setup runs application and proxies on different ports
 | PORT | Description |
 | ---- | ----------- |
 | 8443 | Application |
-| 2083 | VLESS       |
-| 2087 | Trojan      |
+| 2083 | Trojan      |
+| 2087 | VLESS       |
+
 
 
 Dashboard will be on `http://{YOUR_SERVER_IP}:8443/dashboard`
