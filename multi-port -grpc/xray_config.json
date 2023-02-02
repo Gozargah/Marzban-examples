@@ -18,7 +18,7 @@
             "serverName": "example.com",   //change it to your website
             "certificates": [
                 {
-					"ocspStapling": 3600,
+                    "ocspStapling": 3600,
                     "certificateFile": "/var/lib/marzban/certs/fullchain.pem",
                     "keyFile": "/var/lib/marzban/certs/key.pem"
                 }
@@ -51,7 +51,7 @@
             "serverName": "example.com",  //change it to your website
             "certificates": [
                 {
-					"ocspStapling": 3600,
+                    "ocspStapling": 3600,
                     "certificateFile": "/var/lib/marzban/certs/fullchain.pem",
                     "keyFile": "/var/lib/marzban/certs/key.pem"
                 }
