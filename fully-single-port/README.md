@@ -11,9 +11,13 @@ Configured protocols on port 443:
 - Trojan-Websocket
 - VLESS-Websocket
 - Vmess-Websocket
+- Trojan-gRPC
+- VLESS-gRPC
+- Vmess-gRPC
 
 Dashboard will be on `http://{YOUR_SERVER_IP}:443/dashboard`
 
+> gRPC inbounds won't work without TLS. check [How to enable TLS?](#how-to-enable-tls)
 > this is the default port, you can change it from `xray_config.json` file.
 
 ## Configuration
@@ -81,8 +85,13 @@ Yay! you've done all needed.
 - Trojan-Websocket
 - VLESS-Websocket
 - Vmess-Websocket
+- Trojan-gRPC
+- VLESS-gRPC
+- Vmess-gRPC
 
 داشبورد بر روی آدرس `http://{YOUR_SERVER_IP}:443/dashboard` در دسترس خواهد بود.
+
+> پروکسی های gRPC بدون تنظیم TLS کار نخواهند کرد. [فعال سازی TLS](#فعال-سازی-tls) را بررسی کنید.
 
 > شما می توانید پورت پیش فرض را از فایل `xray_config.json` تغییر دهید.
 
