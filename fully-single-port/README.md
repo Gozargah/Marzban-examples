@@ -18,6 +18,7 @@ Configured protocols on port 443:
 Dashboard will be on `http://{YOUR_SERVER_IP}:443/dashboard`
 
 > gRPC inbounds won't work without TLS. check [How to enable TLS?](#how-to-enable-tls)
+
 > this is the default port, you can change it from `xray_config.json` file.
 
 ## Configuration
