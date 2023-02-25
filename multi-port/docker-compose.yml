@@ -1,7 +1,7 @@
 services:
   marzban:
     image: gozargah/marzban:latest
-    restart: on-failure
+    restart: always
     env_file: env
     network_mode: host
 
