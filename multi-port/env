@@ -1,6 +1,9 @@
 SUDO_USERNAME = "admin"
 SUDO_PASSWORD = "admin"
 
+UVICORN_PORT = 8880
+
+
 # XRAY_HOSTS = "
 # Fast-VPN Domain@example.com
 # Fast-VPN IP@192.168.1.1

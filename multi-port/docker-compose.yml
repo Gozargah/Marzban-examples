@@ -6,8 +6,6 @@ services:
     network_mode: host
 
     environment:
-      UVICORN_HOST: 0.0.0.0
-      UVICORN_PORT: 8880
       SQLALCHEMY_DATABASE_URL: "sqlite:////var/lib/marzban/db.sqlite3"
       XRAY_JSON: "/xray_config.json"
 
