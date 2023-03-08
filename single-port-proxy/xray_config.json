@@ -203,29 +203,27 @@
     ],
     "routing": {
         "domainStrategy": "AsIs",
-        "settings": {
-            "rules": [
-                {
-                    "type": "field",
-                    "outboundTag": "blackhole",
-                    "ip": [
-                        "geoip:private"
-                    ]
-                },
-                {
-                    "type": "field",
-                    "port": 53,
-                    "network": "tcp,udp",
-                    "outboundTag": "DNS-Internal"
-                },
-                {
-                    "type": "field",
-                    "outboundTag": "blackhole",
-                    "protocol": [
-                        "bittorrent"
-                    ]
-                }
-            ]
-        }
+        "rules": [
+            {
+                "type": "field",
+                "outboundTag": "blackhole",
+                "ip": [
+                    "geoip:private"
+                ]
+            },
+            {
+                "type": "field",
+                "port": 53,
+                "network": "tcp,udp",
+                "outboundTag": "DNS-Internal"
+            },
+            {
+                "type": "field",
+                "outboundTag": "blackhole",
+                "protocol": [
+                    "bittorrent"
+                ]
+            }
+        ]
     }
 }
