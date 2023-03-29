@@ -27,6 +27,16 @@
                         "xver": 2
                     },
                     {
+                        "path": "/lt",
+                        "dest": "@vless-tcp",
+                        "xver": 2
+                    },
+                    {
+                        "path": "/mt",
+                        "dest": "@vmess-tcp",
+                        "xver": 2
+                    },
+                    {
                         "alpn": "h2",
                         "dest": "/run/nginx-h2c.socket",
                         "xver": 2
@@ -56,6 +66,67 @@
                 //         "http/1.1"
                 //     ]
                 // }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            }
+        },
+        {
+            "tag": "VLESS_TCP_INBOUND",
+            "listen": "@vless-tcp",
+            "protocol": "vless",
+            "settings": {
+                "clients": [],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "none",
+                "tcpSettings": {
+                    "acceptProxyProtocol": true,
+                    "header": {
+                        "type": "http",
+                        "request": {
+                            "path": [
+                                "/lt"
+                            ]
+                        }
+                    }
+                }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            }
+        },
+        {
+            "tag": "VMESS_TCP_INBOUND",
+            "listen": "@vmess-tcp",
+            "protocol": "vmess",
+            "settings": {
+                "clients": []
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "none",
+                "tcpSettings": {
+                    "acceptProxyProtocol": true,
+                    "header": {
+                        "type": "http",
+                        "request": {
+                            "path": [
+                                "/mt"
+                            ]
+                        }
+                    }
+                }
             },
             "sniffing": {
                 "enabled": true,

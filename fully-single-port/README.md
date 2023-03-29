@@ -8,6 +8,8 @@ This setup runs both the application and proxy on a single port using [fallbacks
 
 Configured protocols on port 443:
 - Trojan-TCP
+- VLESS-TCP
+- Vmess-TCP
 - Trojan-Websocket
 - VLESS-Websocket
 - Vmess-Websocket
@@ -83,6 +85,8 @@ Yay! you've done all needed.
 
 پروتکل های تنظیم شده روی پورت ۴۴۳:
 - Trojan-TCP
+- VLESS-TCP
+- Vmess-TCP
 - Trojan-Websocket
 - VLESS-Websocket
 - Vmess-Websocket
