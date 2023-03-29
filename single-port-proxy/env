@@ -1,15 +1,10 @@
 SUDO_USERNAME = "admin"
 SUDO_PASSWORD = "admin"
 
-UVICORN_PORT = 8880
-
-# XRAY_HOSTS = "
-# Fast-VPN Domain@example.com
-# Fast-VPN IP@192.168.1.1
-# "
 
 # XRAY_SUBSCRIPTION_URL_PREFIX = "https://example.com"
 
 
+UVICORN_PORT = 8880
 # UVICORN_SSL_CERTFILE = "/var/lib/marzban/certs/fullchain.pem"
 # UVICORN_SSL_KEYFILE = "/var/lib/marzban/certs/key.pem"
