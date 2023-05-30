@@ -1,4 +1,0 @@
-SUDO_USERNAME = "admin"
-SUDO_PASSWORD = "admin"
-
-# XRAY_SUBSCRIPTION_URL_PREFIX = "https://example.com"
