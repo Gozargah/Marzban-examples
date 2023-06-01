@@ -1,0 +1,19 @@
+services:
+  haproxy:
+    image: haproxy:latest
+    restart: always
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+      - /var/lib/marzban:/var/lib/marzban
+    ports:
+      - 80:80
+      - 443:443
+
+  marzban:
+    image: gozargah/marzban:latest
+    restart: always
+    env_file: .env
+    volumes:
+      - /var/lib/marzban:/var/lib/marzban
+    depends_on:
+      - haproxy
