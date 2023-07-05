@@ -11,6 +11,7 @@ services:
 
   marzban:
     image: gozargah/marzban:latest
+    network_mode: host
     restart: always
     env_file: .env
     volumes:
